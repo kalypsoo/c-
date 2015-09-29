@@ -1,0 +1,11 @@
+constructor ==> ctor
+auto implemented ==> prop
+backing field ==> propfull
+
+=========================================
+Raccourci
+=========================================
+
+commenter : ctrl K,C
+décommenter : ctrl K,U
+realligner : ctrlk K,D

@@ -9,15 +9,34 @@ namespace ClassLibrary1
     public class Pupil : Person
     {
         private int grade;
+        private Dictionary<String,char>pupilActivities = new Dictionary<String,char>();
+
         internal List<Activity> LstActivities;
         
-        private char[] TabEval;
+        private char[] pupilEvaluations;
+
+        public Dictionary<String, char> PupilActivities
+        {
+            get { return pupilActivities; }
+            set { pupilActivities = value; }
+        }
+
+        public void AddActivity(String activityTitle)
+        {
+            PupilActivities.Add(activityTitle,'S');
+        }
+
+        public void AddEvaluation(String title = null, char evaluation = 'S')
+        {
+            if (title != null)
+                PupilActivities[title] = evaluation;
+        }
 
         public Pupil (String name, int age, int grade) : base(name,age)
          {
              Grade = grade;
              LstActivities = new List<Activity>();
-             TabEval = new char [Parameter.DIX];
+             pupilEvaluations = new char [Parameter.DIX];
          }
 
         public Pupil(String name, int age)  : this(name, age, 1)
@@ -37,11 +56,9 @@ namespace ClassLibrary1
 
         public override string ToString()
         {
-            string ch = base.ToString() + ((LstActivities.Count()!=0)? "a choisi ..." : "n’a pas encore choisi d’activité");
-
-            for (int i = 0; i < LstActivities.Count(); i++)
-                ch += " "+LstActivities.ElementAt(i);
-            return ch;             
+            string ch = Header();
+            ch = PrintActivities(ch);
+            return ch;
         }
         public void AddEvaluation ( String title = null, char evaluation = (char)Parameter.Cote.Satisfaisant) 
         {
@@ -53,7 +70,7 @@ namespace ClassLibrary1
                     if(activity.Title.Equals(title)) break ;
                     i++;
                          }
-                TabEval[i]=evaluation ;
+                pupilEvaluations[i]=evaluation ;
             }
         }
 
@@ -79,11 +96,21 @@ namespace ClassLibrary1
             if (i == LstActivities.Count)
                 throw new KeyNotFoundException();
             else
-                return TabEval[i];
+                return pupilEvaluations[i];
 
         }
 
+        public String Header()
+        {
+            return base.ToString() + ((LstActivities.Count() != 0) ? "a choisi ..." : "n’a pas encore choisi d’activité");
+        }
 
+        public String PrintActivities(String ch)
+        {
+            for (int i = 0; i < LstActivities.Count(); i++)
+                ch += " " + LstActivities.ElementAt(i);
+            return ch; 
+        }
 
     }
 }
