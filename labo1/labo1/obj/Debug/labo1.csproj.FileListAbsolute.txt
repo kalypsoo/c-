@@ -1,0 +1,8 @@
+U:\C#\labo1\labo1\bin\Debug\labo1.exe.config
+U:\C#\labo1\labo1\bin\Debug\labo1.exe
+U:\C#\labo1\labo1\bin\Debug\labo1.pdb
+U:\C#\labo1\labo1\bin\Debug\ClassLibrary1.dll
+U:\C#\labo1\labo1\bin\Debug\ClassLibrary1.pdb
+U:\C#\labo1\labo1\obj\Debug\labo1.csprojResolveAssemblyReference.cache
+U:\C#\labo1\labo1\obj\Debug\labo1.exe
+U:\C#\labo1\labo1\obj\Debug\labo1.pdb
